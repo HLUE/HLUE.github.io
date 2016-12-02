@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://hlue.github.io/images/svg_page/svg_15.jpg">
 <meta property="og:image" content="https://hlue.github.io/images/svg_page/svg_16.jpg">
 <meta property="og:image" content="https://hlue.github.io/images/svg_page/svg_17.jpg">
-<meta property="og:updated_time" content="2016-12-02T13:42:49.000Z">
+<meta property="og:updated_time" content="2016-12-02T13:54:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【心得】引用Iconfont做UI？设计师需要Care的那些事儿～">
 <meta name="twitter:description" content="随着UI设计行业的发展，svg的概念也渐渐被大家熟知，然而今天在网上闲逛的时候，查了百度和谷歌，发现关于svg在设计层面的经验分享并不多，更多的是关于开发层面的；今天就结核自己的工作经历，来聊聊设计师在使用svg做界面设计的时候，需要去care的一些问题。">
@@ -356,18 +356,16 @@
 <p><img src="https://hlue.github.io/images/svg_page/svg_07.jpg" alt=""></p>
 <hr>
 <p>随后我们在实际开发中对这三个svg进行引用，并在CSS中设置它们三个的字体均是100px；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;</div><div class="line">  font-family: &apos;iconfont&apos;;  /* project id：&quot;189781&quot; */</div><div class="line">  src: url(&apos;//at.alicdn.com/t/font_51iwc5txsh1cq5mi.eot&apos;);</div><div class="line">  src: url(&apos;//at.alicdn.com/t/font_51iwc5txsh1cq5mi.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;),</div><div class="line">  url(&apos;//at.alicdn.com/t/font_51iwc5txsh1cq5mi.woff&apos;) format(&apos;woff&apos;),</div><div class="line">  url(&apos;//at.alicdn.com/t/font_51iwc5txsh1cq5mi.ttf&apos;) format(&apos;truetype&apos;),</div><div class="line">  url(&apos;//at.alicdn.com/t/font_51iwc5txsh1cq5mi.svg#iconfont&apos;) format(&apos;svg&apos;);</div><div class="line">&#125;</div><div class="line">```---</div><div class="line">同时展示三个icon：</div></pre></td></tr></table></figure>
-<pre><code>&lt;div class=&quot;main&quot;&gt;
-    &lt;h1&gt;图标测试&lt;/h1&gt;
-    &lt;ul class=&quot;icon_lists clear&quot;&gt;
-            &lt;li&gt;
-                &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe64b;&lt;/i&gt;
-                &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe64a;&lt;/i&gt;
-                &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe64c;&lt;/i&gt;
-            &lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre><p>```</p>
+<pre><code>.icon_lists .iconfont{
+    font-size: 100px;
+    line-height: 150px;
+    margin: 900px 0;
+    color:#77BB70;
+    -webkit-transition: font-size 0.25s ease-out 0s;
+    -moz-transition: font-size 0.25s ease-out 0s;
+transition: font-size 0.25s ease-out 0s;
+</code></pre><hr>
+<p>同时展示三个icon：<br>    <div class="main"><br>        <h1>图标测试</h1><br>        <ul class="icon_lists clear"><br>                <li><br>                    <i class="iconfont">&#xe64b;</i><br>                    <i class="iconfont">&#xe64a;</i><br>                    <i class="iconfont">&#xe64c;</i><br>                </li><br>        </ul><br>    </div></p>
 <hr>
 <p>OK，运行一下试试，我们看看结果：</p>
 <p><img src="https://hlue.github.io/images/svg_page/svg_10.jpg" alt=""></p>
@@ -536,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"><span class="nav-number">1.</span> <span class="nav-text">一．我们为什么会推荐SVG？（老司机设计师可以略过这段）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#栗子还是要举一个的。"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">栗子还是要举一个的。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二．我们在软件中绘制svg图片需要注意的点；"><span class="nav-number">2.</span> <span class="nav-text">二．我们在软件中绘制svg图片需要注意的点；</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.    使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><span class="nav-number">3.</span> <span class="nav-text">三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"><span class="nav-number">4.</span> <span class="nav-text">四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"><span class="nav-number">1.</span> <span class="nav-text">一．我们为什么会推荐SVG？（老司机设计师可以略过这段）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#栗子还是要举一个的。"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">栗子还是要举一个的。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二．我们在软件中绘制svg图片需要注意的点；"><span class="nav-number">2.</span> <span class="nav-text">二．我们在软件中绘制svg图片需要注意的点；</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.    使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><span class="nav-number">3.</span> <span class="nav-text">三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">图标测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"><span class="nav-number">1.</span> <span class="nav-text">四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。</span></a></li></ol></div>
             
 
           </div>
