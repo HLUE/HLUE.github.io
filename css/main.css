@@ -1019,7 +1019,7 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
-  font-family: 'Lobster', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'PT Mono', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1681,7 +1681,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0f7122;
+  background: #9fff41;
 }
 .links-of-blogroll {
   font-size: 13px;
