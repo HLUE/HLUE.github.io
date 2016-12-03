@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://hlue.github.io/images/svg_page/svg_15.png">
 <meta property="og:image" content="https://hlue.github.io/images/svg_page/svg_16.png">
 <meta property="og:image" content="https://hlue.github.io/images/svg_page/svg_17.png">
-<meta property="og:updated_time" content="2016-12-02T15:09:38.000Z">
+<meta property="og:updated_time" content="2016-12-03T00:36:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【心得】引用Iconfont做UI？设计师需要Care的那些事儿～">
 <meta name="twitter:description" content="随着UI设计行业的发展，svg的概念也渐渐被大家熟知，然而今天在网上闲逛的时候，查了百度和谷歌，发现关于svg在设计层面的经验分享并不多，更多的是关于开发层面的；今天就结核自己的工作经历，来聊聊设计师在使用svg做界面设计的时候，需要去care的一些问题。">
@@ -336,8 +336,8 @@
 <blockquote>
 <p>SVG(Scalable Vector Graphics，可伸缩性矢量图形)是由万维网联盟(W3C)推出的基于XML编码的开放式图形、图像标准。它虽然是一种二维矢量图形格式，但其中可以包含矢量图形、光栅图像及文本等。</p>
 </blockquote>
-<h2 id="一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"><a href="#一．我们为什么会推荐SVG？（老司机设计师可以略过这段）" class="headerlink" title="一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"></a>一．我们为什么会推荐SVG？<em>（老司机设计师可以略过这段）</em></h2><p>就如官方定义中说的，矢量的！<br>对于设计师而言，理解“矢量概念”的话，即：无限放大或者缩小都不会失真，非常的锐利清晰。如Illustrator &amp; Sketch中的矢量图形，永远有着清晰的边缘。而在实际开发中使用SVG 的话，也是一样，图片可以始终保持着清晰状态，这相比于png或者jpg的优势是非常明显的。</p>
-<h5 id="栗子还是要举一个的。"><a href="#栗子还是要举一个的。" class="headerlink" title="栗子还是要举一个的。"></a>栗子还是要举一个的。</h5><p><img src="https://hlue.github.io/images/svg_page/svg_00.png" alt=""></p>
+<h2 id="一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"><a href="#一．我们为什么会推荐SVG？（老司机设计师可以略过这段）" class="headerlink" title="一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"></a>一．我们为什么会推荐SVG？<em>（老司机设计师可以略过这段）</em></h2><p>就如官方定义中说的，矢量的！<br>对于设计师而言，理解“矢量概念”的话，即：无限放大或者缩小都不会失真，非常的锐利清晰。如Illustrator &amp; Sketch中的矢量图形，永远有着清晰的边缘。而在实际开发中使用SVG 的话，也是一样，图片可以始终保持着清晰状态，这相比于png或者jpg的优势是非常明显的。<br><strong> 栗子还是要举一个的。</strong></p>
+<p><img src="https://hlue.github.io/images/svg_page/svg_00.png" alt=""></p>
 <hr>
 <p>如图所示，同时用浏览器打开两张相同的图片，格式：左边是png；右边是svg</p>
 <p><img src="https://hlue.github.io/images/svg_page/svg_01.png" alt=""></p>
@@ -346,10 +346,12 @@
 <p><img src="https://hlue.github.io/images/svg_page/svg_02.png" alt=""><br>差别就出来了，png格式的图片已经开始模糊，而svg格式的，却依然保持着锐利清晰的边缘！</p>
 <hr>
 <h2 id="二．我们在软件中绘制svg图片需要注意的点；"><a href="#二．我们在软件中绘制svg图片需要注意的点；" class="headerlink" title="二．我们在软件中绘制svg图片需要注意的点；"></a>二．我们在软件中绘制svg图片需要注意的点；</h2><p>一般在UI设计中，输出svg格式图片的话，大多使用Illustrator &amp; Sketch，这里以sketch为栗，说明一下制作规则：</p>
-<h5 id="1-一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；"><a href="#1-一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；" class="headerlink" title="1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；"></a>1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</h5><p><img src="https://hlue.github.io/images/svg_page/svg_03.png" alt=""></p>
+<p><strong> 1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</strong><br><img src="https://hlue.github.io/images/svg_page/svg_03.png" alt=""></p>
 <hr>
-<h5 id="2-使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。"><a href="#2-使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。" class="headerlink" title="2.    使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。"></a>2.    使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。</h5><p><img src="https://hlue.github.io/images/svg_page/svg_04.png" alt=""></p>
-<h5 id="3-在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，"><a href="#3-在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，" class="headerlink" title="3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，"></a>3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，</h5><p><img src="https://hlue.github.io/images/svg_page/svg_05.png" alt=""></p>
+<p><strong>2.    使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。</strong></p>
+<p><img src="https://hlue.github.io/images/svg_page/svg_04.png" alt=""></p>
+<p><strong>3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，，后期再做讨论）</strong></p>
+<p><img src="https://hlue.github.io/images/svg_page/svg_05.png" alt=""></p>
 <h2 id="三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><a href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；" class="headerlink" title="三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"></a>三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</h2><p>现在国内大多数公司用阿里iconfont去将svg的图片应用到实际开发中，笔者这里以web设计为主，进行讨论：<br>iconfont是将每一个svg当作字体处理，可以设置字体的size值，从而来控制svg的图片大小。OK，那么问题来了，我做了一个svg的图片以后，这个svg的“字体size”是多少？ </p>
 <hr>
 <p>我们来做一个实验：<br>我们在Sketch中绘制三个矩形，如图：</p>
@@ -530,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"><span class="nav-text">一．我们为什么会推荐SVG？（老司机设计师可以略过这段）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#栗子还是要举一个的。"><span class="nav-text">栗子还是要举一个的。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二．我们在软件中绘制svg图片需要注意的点；"><span class="nav-text">二．我们在软件中绘制svg图片需要注意的点；</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；"><span class="nav-text">1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。"><span class="nav-text">2.    使用钢笔描边绘制的icon，在输出svg之前，需要将其转换为形状；形状也一定要是闭合的哦。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，"><span class="nav-text">3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><span class="nav-text">三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"><span class="nav-text">四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一．我们为什么会推荐SVG？（老司机设计师可以略过这段）"><span class="nav-text">一．我们为什么会推荐SVG？（老司机设计师可以略过这段）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二．我们在软件中绘制svg图片需要注意的点；"><span class="nav-text">二．我们在软件中绘制svg图片需要注意的点；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><span class="nav-text">三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"><span class="nav-text">四．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。</span></a></li></ol></div>
             
 
           </div>
