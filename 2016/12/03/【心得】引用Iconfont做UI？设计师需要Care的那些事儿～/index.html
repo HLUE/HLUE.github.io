@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/archivess/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archivess/">Archives</a>
                         </li>
                         
                     
@@ -218,7 +218,11 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-681e651cc03fcb97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><strong>3.    在绘制完成之后，要给icon填充上颜色，建议以纯色为主（目前阿里iconfont也支持渐变色，多色块组合型icon，关于该类型，，后期再做讨论）</strong></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-9b4c77ede407e390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><a href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；" class="headerlink" title="三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"></a>三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</h3><p>现在国内大多数公司用阿里iconfont去将svg的图片应用到实际开发中，笔者这里以web设计为主，进行讨论：<br>iconfont是将每一个svg当作字体处理，可以设置字体的size值，从而来控制svg的图片大小。OK，那么问题来了，我做了一个svg的图片以后，这个svg的“字体size”是多少？ </p>
+<h3 id="三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><a href="#三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；" class="headerlink" title="三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"></a>三．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</h3><p>现在国内大多数公司用iconfont去将svg的图片应用到实际开发中；</p>
+<p><strong> 使用字体图标的优势：</strong> </p>
+<p>1.轻量性：一个字体图标远比一个png或者jpg的图标要小。一旦字体图标加载了，就会马上被浏览器渲染出来，不需要下载一个图像。可以减少HTTP请求，还可以配合HTML5离线存储做性能优化。</p>
+<p>2.便利性：字体图标可以用过font-size属性设置其大小，还可以加各种状态效果，包括normal、hover、disabled等状态；使用栅格图的话，必须得为每个不同的状态输出几个不同的图片资源。</p>
+<p>笔者这里以web设计为主，进行讨论：<br>iconfont是将每一个svg当作字体处理，可以设置字体的size值，从而来控制svg的图片大小。OK，那么问题来了，我做了一个svg的图片以后，这个svg的“字体size”是多少？ </p>
 <hr>
 <p>我们来做一个实验：<br>我们在Sketch中绘制三个矩形，如图：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-f37737b024e012bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
