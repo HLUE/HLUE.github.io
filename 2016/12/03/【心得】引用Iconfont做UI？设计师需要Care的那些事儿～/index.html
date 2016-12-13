@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/archivess/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archivess/">Archives</a>
                         </li>
                         
                     
@@ -207,12 +207,13 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-bb65932819914a6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>差别就出来了，png格式的图片已经开始模糊，而svg格式的，却依然保持着锐利清晰的边缘！</p>
 <p>这就是svg的优势；</p>
-<p>OK，那么iconfont又是啥？</p>
+<hr>
+<p><strong> OK，那么iconfont又是啥？</strong> </p>
 <p>简单说，就是将图标文字化处理；用展示文字的形式去展示图标，其本质是文字，而文字也是矢量的，无论放大或者缩小也不会失真；</p>
 <p>使用字体图标的好处：<br>1.轻量性：一个字体图标远比一个png或者jpg的图标要小。一旦字体图标加载了，就会马上被浏览器渲染出来，不需要下载一个图像。可以减少HTTP请求，还可以配合HTML5离线存储做性能优化。<br>2.便利性：字体图标可以用过font-size属性设置其大小，还可以加各种状态效果，包括normal、hover、disabled等状态；使用栅格图的话，必须得为每个不同的状态输出几个不同的图片资源。</p>
 <p>从根本上来说，iconfont和svg是不一样的，iconfont是字体，svg是图片，但是他们都具有“矢量特性”，关于两者的对比，后期会在做阐述；</p>
-<p>今天我们主要还是来聊一下设计师层面，关于iconfont的使用；</p>
 <hr>
+<p>_<em> 今天我们主要还是来聊一下设计师层面，关于iconfont的使用：</em></p>
 <h3 id="一．我们如何去设计一个iconfont；"><a href="#一．我们如何去设计一个iconfont；" class="headerlink" title="一．我们如何去设计一个iconfont；"></a>一．我们如何去设计一个iconfont；</h3><p>OK，制作iconfont的话，我们还是得先输出svg格式，然后将其转化为iconfont；</p>
 <p>一般在UI设计中，输出svg格式图片的话，大多使用Illustrator &amp; Sketch，这里以sketch为栗，说明一下制作规则：</p>
 <p><strong> 1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</strong><br><img src="http://upload-images.jianshu.io/upload_images/1338225-3ebd55d43e496dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
