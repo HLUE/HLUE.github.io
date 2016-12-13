@@ -213,7 +213,7 @@
 <p>使用字体图标的好处：<br>1.轻量性：一个字体图标远比一个png或者jpg的图标要小。一旦字体图标加载了，就会马上被浏览器渲染出来，不需要下载一个图像。可以减少HTTP请求，还可以配合HTML5离线存储做性能优化。<br>2.便利性：字体图标可以用过font-size属性设置其大小，还可以加各种状态效果，包括normal、hover、disabled等状态；使用栅格图的话，必须得为每个不同的状态输出几个不同的图片资源。</p>
 <p>从根本上来说，iconfont和svg是不一样的，iconfont是字体，svg是图片，但是他们都具有“矢量特性”，关于两者的对比，后期会在做阐述；</p>
 <hr>
-<p>_<em> 今天我们主要还是来聊一下设计师层面，关于iconfont的使用：</em></p>
+<p><strong> 今天我们主要还是来聊一下设计师层面，关于iconfont的使用：</strong></p>
 <h3 id="一．我们如何去设计一个iconfont；"><a href="#一．我们如何去设计一个iconfont；" class="headerlink" title="一．我们如何去设计一个iconfont；"></a>一．我们如何去设计一个iconfont；</h3><p>OK，制作iconfont的话，我们还是得先输出svg格式，然后将其转化为iconfont；</p>
 <p>一般在UI设计中，输出svg格式图片的话，大多使用Illustrator &amp; Sketch，这里以sketch为栗，说明一下制作规则：</p>
 <p><strong> 1.    一个svg中如果有两个及两个以上不同的形状，要使用布尔运算进行组合；</strong><br><img src="http://upload-images.jianshu.io/upload_images/1338225-3ebd55d43e496dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -262,7 +262,7 @@
 <p>和视觉稿一样，精确的还原啦！</p>
 <p>那么，对于上面例举的设置页面，也可以使用同样的方法去还原设计稿。</p>
 <p>对于该设置页面，我们需要提供给工程师一组尺寸一样的svg切图，并且告诉他们这些svg都使用一个font－size值，针对这些icon，工程师可以写一个公用的class类；如果需要调整大小的话，只需要改变这一个数值，就可以改变所有icon的大小，是不是很方便嘞！</p>
-<p><strong>因此：站在UI的角度，我们需要做到的是同一模块icon的统一性（譬如刚刚的设置页面）。<br>而对于其他场景的不同页面，没有必要确保所有场景的icon，其方形外框调整为一个宽高的时候，里面icon给人的视觉比重是一致的。</strong></p>
+<p><strong>因此：站在UI的角度，我们需要做到的是同一模块icon的统一性（譬如刚刚的设置页面）。<br>而对于其他场景的不同页面，当所有icon的方形外框调整为一个宽高的时候，没有必要确保里面icon给人视觉比重一致。</strong></p>
 <hr>
 <h3 id="三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"><a href="#三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。" class="headerlink" title="三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"></a>三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。</h3><p>正如文章开头所提到的，在16px的时候，iconfont会开始变得不清晰，但根据笔者和前端工程师的工作（撕逼）经验来看的话，一般在16px的时候，还是可以识别，失真度并没有那么糟糕<br>但是在大部分浏览器中，当字体小于12号字的时，浏览器渲染的时候，会出现兼容性的问题。目前的话，针对于这个问题，是有前端解决方案的，但是会增加工程师的工作量！<br>那么设计师在处理这类的iconfont的时候，可以对于该类较小的icon，以12px的“方形边框切出”（手机端的页面，如果是使用@2x做设计的话，需要以24px宽高处理方形外框），这样开发可以以12号字去处理，避免了很多web兼容性问题，同时也减少了工程师的工作量。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-79021ed099d8a0cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
