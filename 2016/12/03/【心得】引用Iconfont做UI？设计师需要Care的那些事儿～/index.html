@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archivess/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archivess/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -191,7 +191,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>随着UI设计行业的发展，iconfont的概念也渐渐被大家熟知，今天就结核自己的工作经历，来聊聊设计师在使用iconfont做界面设计的时候，需要去care的一些问题。</p>
+                <p>随着UI设计行业的发展，iconfont的概念也渐渐被大家熟知，今天就结合自己的工作经历，来聊聊设计师在使用iconfont做界面设计的时候，需要去care的一些问题。</p>
 <a id="more"></a>
 <p>在说iconfont之前，有必要先来介绍一下SVG，SVG是个啥？我们来看看官方的定义：</p>
 <blockquote>
@@ -210,8 +210,8 @@
 <hr>
 <p><strong> OK，那么iconfont又是啥？</strong> </p>
 <p>简单说，就是将图标文字化处理；用展示文字的形式去展示图标，其本质是文字，而文字也是矢量的，无论放大或者缩小也不会失真；</p>
-<p>使用字体图标的好处：<br>1.轻量性：一个字体图标远比一个png或者jpg的图标要小。一旦字体图标加载了，就会马上被浏览器渲染出来，不需要下载一个图像。可以减少HTTP请求，还可以配合HTML5离线存储做性能优化。<br>2.便利性：字体图标可以用过font-size属性设置其大小，还可以加各种状态效果，包括normal、hover、disabled等状态；使用栅格图的话，必须得为每个不同的状态输出几个不同的图片资源。</p>
-<p>从根本上来说，iconfont和svg是不一样的，iconfont是字体，svg是图片，但是他们都具有“矢量特性”，关于两者的对比，后期会在做阐述；</p>
+<p>使用字体图标的好处：<br>1.轻量性：一个字体图标远比一个png或者jpg的图标要小。一旦字体图标加载了，就会马上被浏览器渲染出来，不需要下载一个图像。可以减少HTTP请求，还可以配合HTML5离线存储做性能优化。<br>2.便利性：字体图标可以通过font-size属性设置其大小，还可以加各种状态效果，包括normal、hover、disabled等状态；使用栅格图的话，必须得为每个不同的状态输出几个不同的图片资源。</p>
+<p>从根本上来说，iconfont和svg是不一样的，iconfont是字体，svg是图片，但是他们都具有“矢量特性”，关于两者的对比，后期会再做阐述；</p>
 <hr>
 <p><strong> 今天我们主要还是来聊一下设计师层面，关于iconfont的使用：</strong></p>
 <h3 id="一．我们如何去设计一个iconfont；"><a href="#一．我们如何去设计一个iconfont；" class="headerlink" title="一．我们如何去设计一个iconfont；"></a>一．我们如何去设计一个iconfont；</h3><p>OK，制作iconfont的话，我们还是得先输出svg格式，然后将其转化为iconfont；</p>
@@ -229,14 +229,14 @@
 <p>如果要解决这个问题，我们需要将16x16px的外框加上icon一起复制到原先的场景中，再去放大到原先icon的大小，量出外框的高度，再把这个高度给到开发…这个流程下来，我估计设计师，要疯…这是一个极其繁琐的过程，大大的增加了设计师的工作量。</p>
 <p><strong>总结：对于这个16x16px的规范设计要求，如果是基于设计一个系列的iconfont字体库的初衷，是极其合理的。但是实际工作开发场景中的话，这个规范，就会显得很鸡肋。</strong></p>
 <hr>
-<h3 id="二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><a href="#二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；" class="headerlink" title="二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"></a>二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</h3><p>笔者这里以web设计为主，进行讨论：<br>iconfont是将每一个svg当作字体处理，可以设置字体的size值，从而来控制svg的图片大小。OK，那么问题来了，我做了一个svg的图片以后，这个svg的“字体size”是多少？ </p>
+<h3 id="二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"><a href="#二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；" class="headerlink" title="二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；"></a>二．视觉稿里面有了svg的icon，开发时我们如何做到精确还原；</h3><p>笔者这里以web设计为主，进行讨论：<br>CSS是将每一个iconfont当作字体处理，可以设置字体的size值，从而来控制iconfont的大小。OK，那么问题来了，我做了一个iconfont以后，这个iconfont的“字体size”是多少？</p>
 <hr>
 <p>我们来做一个实验：<br>我们在Sketch中绘制三个矩形，如图：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-f37737b024e012bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>分别是正方形，瘦长型矩形，扁型矩形，把它们放在同一个iconfont的项目组里面。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-3f72930a5aafbeb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <hr>
-<p>随后我们在实际开发中对这三个svg进行引用，并在CSS中设置它们三个的字体均是100px；</p>
+<p>随后我们在实际开发中对这三个iconfont进行引用，并在CSS中设置它们三个的字体均是100px； </p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-252f6379b36b174d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <hr>
 <p>同时展示三个icon：</p>
@@ -253,15 +253,15 @@
 <p><strong>那么又有了一个新的问题，对于各种各样的场景，我们如何做到统一呢？</strong></p>
 <p>譬如下方这样的列表</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-93e2650d4a9303ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>左侧的icon其实每一个高度都是不一致的，难道每一个icon都要去设置一个高度？对于开发而言，简直太麻烦啦。<br>那么该如何处理呢？当我们在实际导出svg切图的时候，可以使用切片工具，去给每一个icon套上一个正方形的“外框”，这样导出的icon，实际的字体size大小，就是正方形的边长。</p>
+<p>左侧的icon其实每一个高度都是不一致的，难道每一个icon都要去设置一个高度？对于开发而言，简直太麻烦啦。<br>那么该如何处理呢？当我们在实际导出iconfont切图的时候，可以使用切片工具，去给每一个icon套上一个正方形的“外框”，这样导出的icon，实际的字体size大小，就是正方形的边长。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-1c899728a8d5bce8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-99160e3b4fc3e270.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <hr>
-<p>OK，输出svg，在代码中引用新的icon，我们来在实际应用中看一下效果</p>
+<p>OK，输出iconfont，在代码中引用新的icon，我们来在实际应用中看一下效果</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1338225-07c856a97521ca16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>和视觉稿一样，精确的还原啦！</p>
 <p>那么，对于上面例举的设置页面，也可以使用同样的方法去还原设计稿。</p>
-<p>对于该设置页面，我们需要提供给工程师一组尺寸一样的svg切图，并且告诉他们这些svg都使用一个font－size值，针对这些icon，工程师可以写一个公用的class类；如果需要调整大小的话，只需要改变这一个数值，就可以改变所有icon的大小，是不是很方便嘞！</p>
+<p>对于该设置页面，我们需要提供给工程师一组尺寸一样的iconfont切图，并且告诉他们这些iconfont都使用一个font－size值，针对这些icon，工程师可以写一个公用的class类；如果需要调整大小的话，只需要改变这一个数值，就可以改变所有icon的大小，是不是很方便嘞！</p>
 <p><strong>因此：站在UI的角度，我们需要做到的是同一模块icon的统一性（譬如刚刚的设置页面）。<br>而对于其他场景的不同页面，当所有icon的方形外框调整为一个宽高的时候，没有必要确保里面icon给人视觉比重一致。</strong></p>
 <hr>
 <h3 id="三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"><a href="#三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。" class="headerlink" title="三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。"></a>三．关于浏览器兼容性的问题，在使用iconfont时候需要注意的。</h3><p>正如文章开头所提到的，在16px的时候，iconfont会开始变得不清晰，但根据笔者和前端工程师的工作（撕逼）经验来看的话，一般在16px的时候，还是可以识别，失真度并没有那么糟糕。</p>
