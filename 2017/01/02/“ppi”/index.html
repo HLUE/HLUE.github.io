@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          设计师需要知道的一些移动端适配原理｜仅针对Native - 戴瀚林的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/01/02/“ppi”/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">DHL Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archivess/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('ppi_bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#开发对接" title="开发对接">开发对接</a>
+                        
+                    </div>
+                    <h1>设计师需要知道的一些移动端适配原理｜仅针对Native</h1>
+                    <h2 class="subheading"> &quot;DPI、PPI、DP、PT、PX...&quot;</h2>
+                    <span class="meta">
+                        Posted by DHL on
+                        2017-01-02
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>注：移动端的页面设计一般包括wap和native两种；本文的内容仅针对native的UI设计做总结归纳。</p>
+</blockquote>
+<h3 id="先来熟悉几个知识点"><a href="#先来熟悉几个知识点" class="headerlink" title="先来熟悉几个知识点"></a>先来熟悉几个知识点</h3><p><strong> 1.分辨率</strong> </p>
+<p>我们在做设计的时候，新建一个页面，这个页面会有自己的宽高像素值，这个数值，即可称为这个页面的分辨率。比如对于iPhone6而言，其宽高是750x1334px，我们可以称它的分辨率为750x1334。</p>
+<p>这里要特别说明一下，我们在PS中新建一个画布的时候，弹窗中的这个“分辨率”其实并不是UI意义上的分辨率（这个是平面设计上的分辨率，因为PS诞生的初期，很多功能的设定是为了平面设计而生），下图PS弹窗中的这个“分辨率”，对应到UI设计的话，其实是PPI（后面会讲到）</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi01.png" alt=""></p>
+<p><strong> 2.屏幕大小</strong><br>屏幕大小是指屏幕对角线两点之间的物理长度，一般以英寸（inch）为单位。比如小米Note4的屏幕为5.5英寸，就是指这款手机屏幕对角线实际长度为5.5英寸。</p>
+<p><strong> 3.屏幕密度PPI(pixel per inch)</strong><br>PPI在移动端设计中是一个很重要的概念，即屏幕密度。可以理解为每一英寸上的像素点个数。如下图：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi05.png" alt=""></p>
+<p>举个例子，图中是一个iPhone6，它的屏幕宽度是2.3inch，在水平方向上，一共有750个像素点，那么它的ppi＝750px/2.3inch，约等于326ppi<em>（这个结论建立在方形像素的基础上的，因为牵涉到屏幕工艺，这里暂不深究，新手可忽略这句话）</em></p>
+<p>对于ppi的解释，很多文章喜欢用“勾股定理”的方式去计算：即用勾股定理计算出屏幕对角线的像素点个数，然后再除以屏幕大小，得出ppi</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi02.png" alt=""></p>
+<p>利用勾股定理的计算结果是没有问题的，但是在理解上，可能会有点难理解。为什么这么说呢？</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi06.png" alt=""></p>
+<p>譬如这张图，试问我该如何去考虑这个对角线上面有多少个像素点呢？这根对角线跟部分方形像素点的交集可能只有一个小角，那么这个像素点我到底该不该算做是这个对角线上的呢？显然，是没法统计的。</p>
+<p>那为什么说用“勾股定理”的方式计算是合理的呢？笔者这里解释一下“勾股定理”方式计算ppi的原理：</p>
+<p><strong> 我们来做一组讨论：</strong> </p>
+<p>设屏幕水平方向为x inch，竖直方向为y inch，屏幕水平向的像素个数是α，屏幕竖直向的像素个数是β，屏幕的密度ppi＝p。</p>
+<p>根据ppi的定义，则会有α=xp,β=yp。可以推导出：x=α/p;y=β/p;</p>
+<p>根据勾股定理，设屏幕的对角线长度z inch，根据勾股定理，有：z²=x²+y² 进一步可得出： z = √(x²+y²)</p>
+<p>好，又因为x=α/p;y=β/p;</p>
+<p>所以：z = √(α/p)²+(β/p)² = √(α²/p²)+(β²/p²) =√(α²+β²)/√p² =√(α²+β²/p</p>
+<p>除数和被除数对调位置: p = √(X²+Y²）/ z</p>
+<p>这也正是ppi的勾股定理计算由来。</p>
+<p><strong> 4.DPI(一般用于对打印精度的描述)</strong><br>用于平面行业，是指打印的分辨率，每英寸所能打印的点数(dot per inch)。</p>
+<p>但是很多UI设计师也喜欢把DPI用于屏幕精度，如果是针对屏幕的话，其实大家所说的也就是PPI，只不过这里的DPI和PPI之间有一定的换算关系：在72dpi的情况下，dpi＝ppi，如果是144dpi，则2dpi＝1ppi，有倍数关系；所以我们在ps中新建画布的话，一般以72dpi为基准（不论你设计的屏幕是多少的ppi），因为在这样的基准下，ppi在数值上等同于dpi，方便计算（但它们本质是两个不同的事物哦）</p>
+<p><strong> 5.DIP(DP)</strong><br>设备独立像素（Device Independent pixels）。是安卓开发用的单位，1dp表示在屏幕点密度为160ppi时1px长度。dp更类似一个物理尺寸，同样宽高dp的一张图片，在不同ppi上看起来是差不多大小的。</p>
+<p><strong> 6.SP(scaled pixels)</strong><br>这也是安卓的常用单位，和DP不一样，SP主要用于安卓的文字。SP和PX的换算关系与DP和PX的换算关系一样（后面会做详细阐述）</p>
+<p><strong> 7.PT</strong><br>iOS使用的开发单位，也称为逻辑像素。在iOS的一倍图（163PPI），如iPod Touch第一代中，1pt＝1px。</p>
+<p>巧合的是，在平面设计中也有一个pt的单位，它最早源自于传统的铅字印刷，是用来表示铅字块的尺寸，在印刷和平面设计的世界里，是一个标准的长度单位，1pt＝1/72英寸。</p>
+<h3 id="DP与PX的转换"><a href="#DP与PX的转换" class="headerlink" title="DP与PX的转换"></a>DP与PX的转换</h3><p>就如上文中提到的dp是安卓开发中用的单位，同样dp大小的元素，在不同屏幕上看起来，是差不多的。</p>
+<p>好，我们来举一个比较通俗的例子：</p>
+<p>现在有这么两个屏幕，我设定它的宽高都是1 inch，但一个水平方向的像素个数为10px，一个为20px。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi07.png" alt=""></p>
+<p>我们在左侧的屏幕做了一个正方形，这个正方形占一个像素点；那么，平移到另外一个屏幕上时，为了保证这个正方形在不同的屏幕上看起来差不多大，在另外一个屏幕上，这个正方形需要占四个像素点，对于安卓工程师而言，这两个屏幕上，这个点的宽高竖直是一定的，也就是他们的dp值是一样的，但是由于屏幕密度的差异，左侧屏幕上的点宽高为1px，右侧屏幕上的点宽高为2px。</p>
+<p>下面来看一个表格：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi031.png" alt=""></p>
+<p>这是安卓各种屏幕和其对应ppi的关系。就如上文中提到的，在屏幕密度为160ppi，即mdpi的时候，1dp＝1px，相当于这是一个基准屏幕。那么我们适配到其他密度的安卓屏幕的时候，该如何处理呢？</p>
+<p>举个例子，我针对mdpi做了一个icon,在适配到hdpi的时候，我需要放大到1.5倍，适配到xhdpi的时候，需要放大到两倍。具体放大或者缩小到多少，需要看对应屏幕的密度和mdpi屏幕密度的比例关系（也就是表格中提到的比率）。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi04.png" alt=""></p>
+<p>譬如我这个icon的宽度设计的时候是100px，那么在mdpi中，其宽度就是100dp，在hdpi中图片会被拉伸至就是150px，到了xhdpi中，图片会被拉伸至200px（但是不论在哪个屏幕中，它宽度的dp数值均是100dp）所以针对hdpi和xhdpi的屏幕，我们需要单独的输出一张放大到1.5倍和一张放大到2倍的图片资源（避免机器自己拉图片伸导致的失真问题）。</p>
+<p>关于sp：对于安卓系统中的文字，当系统字号设为“普通”时，sp与px的尺寸换算和dp与px是一样的。</p>
+<h3 id="PT与PX的转换"><a href="#PT与PX的转换" class="headerlink" title="PT与PX的转换"></a>PT与PX的转换</h3><p>相对于安卓各种各样的ppi屏幕，苹果的ppi种类要相对少很多。如图：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ppi08.png" alt=""></p>
+<p>理解完安卓的DP和PX之间的关系后，就很好理解iOS中的PT和PX的关系了。</p>
+<p>163ppi的苹果机器，相当于安卓的mdpi；</p>
+<p>326ppi的苹果机器，相当于安卓的xhdpi；</p>
+<p>401ppi的苹果机器，相当于安卓的xxhdpi；</p>
+<p>这三种不同ppi，也就是我们常说的@1x，@2x，@3x；所以iOS的屏幕密度种类，相对安卓少很多，并且其三种屏幕ppi密度比例，约等于1:2:3</p>
+<p>所以我们在一倍图中做了一个icon宽高为10px，那么适配到二倍图就需要把图片放大到20px，适配到三倍图就需要把图片放大到30px。</p>
+<h3 id="工作中的适配问题"><a href="#工作中的适配问题" class="headerlink" title="工作中的适配问题"></a>工作中的适配问题</h3><p>基于现在敏捷型开发的工作模式，很多时候我们没有时间针对各种ppi的屏幕都输出一套设计稿（成本太大）。更多的时候，我们会针对iOS或者安卓单独输出一套图，然后去适配其他ppi的屏幕；甚至一稿适配双平台所有的屏幕。</p>
+<p>譬如目前苹果的主流使用机型是iPhone6<em>（这个结论在不同的时间点有不同的答案，设计师需要根据当下的市场情况去选择）</em></p>
+<p>我们在做UI设计的时候，会依照iPhone6的设计稿去做图，对于设计中需要输出给开发的图片资源，会在@2x的基础上，往上乘以1.5倍制作@3x的图、往下乘以0.5倍制作@1x的图给到开发。不过现在使用一倍图手机的用户已经很少很少了，所以目前iOS的@1x基本不用考虑，实际工作中，输出@2x和@3x即可</p>
+<p>安卓的一般会按照xhdpi去做图，然后去适配其他的屏幕。即在720×1280中做图，让开发人员放到drawable-xhdpi的资源文件夹中即可，对于ppi较低屏幕的话，没有必要单独输出一套图，一般直接用xhdpi去在低密度手机上运行，如果出现卡顿的现象，可以单独针对特殊场景输出图片资源。</p>
+<p><strong> 这里着重说一下一稿适配双平台</strong></p>
+<p>目前的话，一般会以iPhone6，即750x1334px的设计稿去做图，然后输出iOS的@1x以及@3x图片资源给到开发。</p>
+<p>那么我们怎么利用iOS的图去适配给到安卓开发呢？</p>
+<p>我们可以仔细看一下，安卓的xhdpi和iOS的750x1334其实在横向的像素值只差了30px，除以2也就是15pt／dp，对应的折合到屏幕两边的差距，约等于7～8个dp／pt，这个差值其实并不是很大。另外在ppi方面，这两个屏幕一个是320（xhdpi），一个是326（@2x），仅仅差了6ppi，所以在做设计的时候，我们可以使用iPhone6的设计稿，以及其切图输出的资源，直接适配到xhdpi。这样的做法可以满足绝大多数场景，譬如表单设计等等；但是对于一些特殊的场景，如若适配不能够解决问题，我们则需要单独输出一套安卓的设计稿。</p>
+<p>随后我们可以再输出一套1.5倍的图片资源，去适配iPhone6p以及安卓的xxhdpi。</p>
+<p>那么有一些图片资源，我们想让它在不同的屏幕中始终保持一个固定的像素值该怎么办？可以让工程师把这张图片放置于drawable-nodpi中，这样这张图在不同的ppi中，可以始终保持着其原先的px值。</p>
+<p><em>本文针对了移动端屏幕的知识点做了归纳，希望可以对设计新人起到帮助，同时也是对自己的知识做一个阶段性的总结，谢谢。</em></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/12/31/“搭建博客”/" data-toggle="tooltip" data-placement="top" title="如何在Mac上搭建基于GitHub的Hexo主题博客？【小白篇】">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; DHL Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
