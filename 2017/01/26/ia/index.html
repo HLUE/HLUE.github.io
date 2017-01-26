@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          由IA浅谈产品设计方法论 - 戴瀚林的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/01/26/ia/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">DHL Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archivess/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('ia_bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#交互设计" title="交互设计">交互设计</a>
+                        
+                    </div>
+                    <h1>由IA浅谈产品设计方法论</h1>
+                    <h2 class="subheading"> &quot;Information architecture with product design&quot;</h2>
+                    <span class="meta">
+                        Posted by DHL on
+                        2017-01-26
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>俗话说的好，每一个测试都有一颗UI的心，每一个UI都有一颗产品的心。互联网发展到今天，一个UI设计师仅仅只懂视觉已经不能顺应时代的发展了，对于一个视觉而言，懂得一些基本的交互设计手法，还是很有必要的，今天就来聊聊一些基本的产品设计方法论。</p>
+</blockquote>
+<p>说到方法论，其实就是设计师在做产品时候的设计流程，思维方式。每一个设计师的思维方式不尽相同，在面对不同产品的时候，也会采用不同的设计模式。今天笔者就来浅谈一下交互设计的方法论。</p>
+<p>以下为笔者自己常用的一套设计流程（从最底层到最表层）：</p>
+<ul>
+<li>信息架构</li>
+<li>任务流程</li>
+<li>角色用例</li>
+<li>界面结构</li>
+<li>感知设计  </li>
+</ul>
+<p>这些步骤，可以说是在进行视觉设计之前的交互设计基本步骤，其产出物——交互稿，也是指导视觉设计的最主要材料。</p>
+<h3 id="一-信息架构-IA"><a href="#一-信息架构-IA" class="headerlink" title="一.信息架构(IA)"></a>一.信息架构(IA)</h3><p>好，就如文章标题所提出的，进行交互设计的第一步，也是最重要的一步，称之为IA（信息架构）。它也是后面交互设计的指导步骤。</p>
+<p>信息架构是个啥？简单的来说，就是把产品里面涉及到的所有内容信息加以分类，重组，就会得到一个信息结构树。如图</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia01.svg" alt=""></p>
+<p>信息架构在产品设计的五层个层面中属于结构层（关于产品设计的五个层面后期会做详细阐述），范围层和战略层主要是关注抽象的范围问题，是极其宏观的。而到了IA主导的结构层，就开始完成了抽象到具体的变化。架构设计的产出物，会开始直接作用在最后的用户体验上。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia02.png" alt=""></p>
+<p>在UI的角度去理解架构设计的话，可以理解为信息的导航设计。即根据产品商业目标与用户的体验需求进行设计，先从最有可能满足决策目标的内容功能着手进行分类，在根据逻辑细分出次级分类。这种信息架构设计模式称之为自上而下。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia07.svg" alt=""></p>
+<p>与之相对应的设计模式还有另外一种，相信不说名字大家也可以猜到了，就是自下而上。什么意思呢？</p>
+<p>刚我们是根据大的模块去细分每一个子模块下面的“树”，而自下而上则是先有了很多琐碎的，不成体系的信息，这些信息都是属于最低级别的分类，我们在根据它们彼此的逻辑关系进行分类，归纳出其所属的较高类别的信息，来构建我们的产品结构。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia06.svg" alt=""></p>
+<p><strong> 信息架构的深度和广度</strong> </p>
+<p>在设计信息结构时，需要去考虑其深度和广度的平衡。</p>
+<p>广度过广：顶层有很多类目，但是层级数目较少</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia08.png" alt=""></p>
+<p>深度过深：顶层类目较少，但是层级数目很多</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia09.png" alt=""></p>
+<p>在设计信息架构时，如果深度过深的话，用户寻找一个功能目标的时候，就会花费很多的精力和心思。每当从一个层级过渡到下一个层级的时候，就会有部分用户因为操作成本较大的原因而离开，从而导致用户的流失。而如果我们减少页面的深度，而增加广度的话，用户则主要通过眼睛去扫视页面上的信息进行筛选，这相对于直接点击的话，操作成本会小很多。但是如果用户一进来，就看到了密密麻麻的信息，对于用户而言，会让用户患上“选择困难症”，这也会让用户迷失自己的方向，同时增加了用户在单一层级页面的停留时间。</p>
+<p>所以对于深度和广度的权衡，一定需要综合产品本身的特点，合理的设计。</p>
+<p><strong> 那么我们该如何进行合理的信息导航设计呢？</strong> </p>
+<p><strong> 1.逻辑分类</strong> </p>
+<p>在我们进行信息结构设计的时候，一定要符合一般用户对于该类产品的认知习惯。</p>
+<p>比如我们做了一家卖衣服的平台，有很多的衣服，鞋子。我们可以以品牌来分类，每一个品牌下面有自己的衣服，鞋子。然后进入鞋子这个层级以后，又会有不同的鞋（板鞋，靴子，运动鞋），选定一个款式以后，鞋子也会有自己的颜色，不同的size，不同的价格。这是一种分类方法。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia10.svg" alt=""></p>
+<p>我们也可以从不同的维度去进行信息的设计，刚刚我们是按照品牌来分类，那么我们换一个维度来考虑一下。我首先把这些商品就分为鞋类，衣服类。然后再往下，鞋类我有不同的品牌，每个品牌再往下去细分鞋子的款式，颜色大小价格等等。这也是一个分类的维度。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia11.svg" alt=""></p>
+<p>那么这两种到底哪种合理呢？我觉得都是合理的，因为它们都满足了一个必要的条件，那就是符合我们对于事物分类的一般认知，大家都可以理解这种分类模式，那就是OK的。</p>
+<p>但是具体我们该使用哪种呢？这个时候，就需要去结合业务的需求，这两种分类的方法，第一个是唯品会（以品牌为主进行分类），另外一个是淘宝（以商品种类来进行分类），这两种模式，都是符合其产品业务需求的，那么，它们的分类，就是合理的。</p>
+<p><strong> 2.导航的几种常见类型</strong> </p>
+<p>如果说逻辑分类是一种分类思想的话，那么在具体实践中，我们则需要去结合一般成型产品中常见的导航设计，去进行设计。</p>
+<p>1)层级式递进</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia12.png" alt=""></p>
+<p>如图，是京东商城的截图。层级式递进，一般是针对于数量极其庞大的高层选项，一次展示单个层级或者多层级的选项，有着合理的信息分类。</p>
+<p>2)固定导航类型</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia13.png" alt=""></p>
+<p>导航一般位置不便，且一般存在于一级页面，如手机APP底部的TAB。</p>
+<p>3）线性结构（沙盒模型）</p>
+<p>整个流程都是一个顺序下来的，即先完成“A” 再完成“B”，整个流程中，各个节点一般只会以一种连结方式存在。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia14.svg" alt=""></p>
+<p>4）搜索型</p>
+<p>面对体量较大的信息，可以使用搜索特定的词或者某些条目来寻找条目。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia15.png" alt=""></p>
+<p><strong> 3.卡片分类</strong> </p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia16.png" alt=""></p>
+<p>卡片分类是一种比较常用的信息分类的工具。我们事先准备一些便签纸，把需要分类的功能或者信息写在卡片上面。这个时候由设计师以及用研人员去对信息进行排列组合。这个过程，简单的说，就是“把类似的东西放在一起”</p>
+<p>在实际操作中，我们可以事先确定好产品的一级导航，然后由工作人员去根据一级导航，梳理这些信息的归类。当然，在这个过程中，也可以邀请一些用户进来，让用户一起来参与归类，“倾听用户的声音”</p>
+<h3 id="二-任务流程"><a href="#二-任务流程" class="headerlink" title="二.任务流程"></a>二.任务流程</h3><p>在信息架构设计完成之后，我们需要去设计任务的流程。信息架构可以说是产品的大框架，而到了任务流程这一块，则开始进入了交互设计的细化环节。如图：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia17.png" alt=""></p>
+<p>任务流程设计存在的意义：如果把产品的定位或者设计目标比作指南针，那么任务流程就是一张标记有通往目的地的路径地图；信息结构负责的是产品的大框架，而任务流程则是在这个框架的基础上，完成所有的细节。</p>
+<p>在我们绘制线框图之前，先用流程图确定每一个环节的任务要点，再去细化对应界面的demo，会让我们事半功倍。</p>
+<p>这边以笔者之前做P2P理财的流程设计思路来举个例子：</p>
+<p>一般从我们接触到一款理财产品，到购买行为发起之前，是这么一个步骤（这里以合家金融现有的业务体系设计的购买体验）：</p>
+<ul>
+<li>了解理财产品信息</li>
+<li>选择需要购买的产品</li>
+<li>输入投资金额</li>
+<li>接受第三方支付公司验证信息</li>
+<li>进入支付环节</li>
+<li>通知是否购买成功</li>
+</ul>
+<p>这是我们理想中的一个任务流程。好！那么具体进入到了细化任务的时候，该怎么处理呢？</p>
+<p>上面的几个步骤，可以理解为是购买理财的几个大步骤。我们需要去对其进行任务拆分，即把每一个任务细化为很多子任务。</p>
+<p>下面我们来对每一个大的任务进行分解:</p>
+<table>
+<thead>
+<tr>
+<th>1.了解理财产品信息</th>
+<th>2.选择需要购买的产品</th>
+<th>3.开始投资行为</th>
+<th>4.第三方验证</th>
+<th>5.支付环节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>年华收益</td>
+<td>根据各个理财产品信息的对比</td>
+<td>输入购买金额</td>
+<td>短信验证</td>
+<td>确认订单信息</td>
+</tr>
+<tr>
+<td>投资周期</td>
+<td>根据收益计算器得出的收益</td>
+<td>选择支付银行</td>
+<td></td>
+<td>完成支付</td>
+</tr>
+<tr>
+<td>起投金额</td>
+<td></td>
+<td>核对用户协议</td>
+<td></td>
+</tr>
+<tr>
+<td>购买方式</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>还款方式</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>债务人信息</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>债务项目资料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>项目安全性</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>可投剩余额度</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>如表格所示，每一个大的任务，可以拆分成为很多子任务，但是这些每一个子任务都需要用户去完成吗？答案是不一定的。如果我是合家金融的老用户，我买了一年多的理财了，从来没有出现过兑付危机，那我是信任这个平台的，我购买理财的时候，可能只会在乎收益，投资周期，如果有合适的产品，我就会直接购买了，这种用户的话，是不会care太多其他信息的。</p>
+<p>但如果我是在这个平台上首投呢？我是一个新用户，我看着这个平台的收益好像很高，但是它真的不会跑路吗？我对这个“高收益”的平台是会有所戒备的，我需要去了解这个平台的安全性，需要去了解这个平台的资质。</p>
+<p>好，经过种种对比，其实我们可以发现，对于每一个子任务，有些用户会关心，有些用户并不会关心，比如债务人的信息资料。但是对于一些重要任务，比如投资的年华收益，每一个用户，都是会去关心的。这么一对比下来，其实这里的每一个子任务，都会有其优先级。这里要特别说明一下，这个优先级并不是指任务发生的先后，而是指其重要程度，或者用户对其关心的程度。</p>
+<p>当然，笔者刚只是从两个不同的用户角色出发来对比了一些子任务的优先级高低。我们也可以从业务的角度，合规的角度等等去综合权衡，合理的去考量每一个任务的重要程度。</p>
+<p>而后，我们根据其优先级，去设计具体的流程。</p>
+<p>第一优先级：年华收益，投资周期，起投金额，安全性，预计收益，购买金额<br>第二优先级：剩余额度，债务资料，还款方式，购买方式，用户协议，支付银行<br>第三优先级：第三方验证</p>
+<p>现在优先级有了，大方向的任务步骤也有了，串联起来，我们就可以在主流程中，去根据优先级的不同，构建每一个大任务中的子任务的顺序。</p>
+<p>比如，我们需要去购买产品之前，一定是要先去了解产品信息，但是我们不可能让所有的用户都阅读完<strong>每一个</strong>产品的<strong>所有信息</strong>再去下单，所以在首页，我们会做一个产品列表，就好比超市的货架，我们把每一个商品最重要的信息，成列在外面（年化收益、投资周期，起投金额）。</p>
+<p>选择完了自己需要的商品以后，就进入了商品的详情页面，这个时候我们可以展示剩下的信息：收益计算器，安全性，预计收益，剩余额度，债务资料，还款方式，购买方式，用户协议，支付银行以及最重要的购买btn等等。</p>
+<p>之后再去展示购买页面的购买金额，支付银行等等信息。</p>
+<p>有了这个思路以后，我们不单有了细化的任务流程，还可以根据这个流程，制作出简单的页面demo（包括哪些页面，每个页面上包括哪些信息，信息孰重孰轻）。其实这个流程下来，我们就完成了一次购买流程的设计（不包括特殊情况的处理，如红包、加息券等）。而购买流程其实只是整个产品PD的一个小环节,对于一个用户而言，使用整个产品的大流程一般是：</p>
+<ul>
+<li>注册/登陆</li>
+<li>绑定银行卡</li>
+<li>首投</li>
+<li>复投</li>
+</ul>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia18.png" alt=""></p>
+<p>从每一个环节到下一个环节，都会有用户不断的流逝，我们又可以根据这些大任务，去不断的拆分细化，得出若干个子任务，再去根据优先级（使用频次、业务需求、体验需求等等）和使用流程，去合理的优化组合这些子任务，进而规划出我们的“产品信息节点地图”。</p>
+<p>到了这个步骤，一般来说可以进行到页面的界面细节设计了，但在此之前呢，我们还需要做一个角色用例，来明确一些特殊场景的任务流程。为什么这么说呢？我们不难发现，我们不可能让所有的用户在使用产品的时候，都是按照我们预期的模式进行，有些用户可能注册了就去投资，而没有绑银行卡；有些用户绑定了银行卡，而忘记了密码手势…</p>
+<p>所以对于这类特殊场景，就牵扯到了不同的用户角色在使用产品的过程中可能遇到的问题，乃至于角色转换问题等等。</p>
+<h3 id="三-角色用例"><a href="#三-角色用例" class="headerlink" title="三.角色用例"></a>三.角色用例</h3><blockquote>
+<p>在这里特别说明一下：角色用例不等于用户画像。</p>
+</blockquote>
+<p>在我们设计一个产品的时候，使用这个产品的角色会有很多：管理人员、售货人员、清洁人员、送货人员等等。</p>
+<table>
+<thead>
+<tr>
+<th>用户角色</th>
+<th>角色描述（权限）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>管理者</td>
+<td>所有权限</td>
+<td></td>
+</tr>
+<tr>
+<td>售货人员</td>
+<td>权限A</td>
+</tr>
+<tr>
+<td>送货人员</td>
+<td>权限B</td>
+</tr>
+<tr>
+<td>清洁人员</td>
+<td>权限C</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>每一个角色都会有自己所需要使用的功能，我们可以以某一个角色，在使用这个系统时会用到的功能，把该角色的使用流程串联起来；每一个角色的权限不同，也就对应着每一个角色可能用到的功能不同，把大家的使用流程进行组合，就可以归纳出不同角色在使用这个系统的时候，可能会出现的问题。</p>
+<p><strong>关于角色的转换：</strong></p>
+<p>举例：我是去一家店买东西的，但是突然变成了一名浏览者(不买了)。因为我拿了一大堆东西，准备去结账的时候，突然发现自己没带钱包，好尴尬。</p>
+<p>这个时候针对这种特殊场景，作为产品的设计者，需要去优化这个场景。<br>怎么处理呢？可以给用户设一个柜子，把已经选购好的物品放置在这个柜子里面，如果不超过12h，用户可以拿着钱包回来买单；超过了12h，则柜子里面的东西，由专人将其放回货架上去。那么对于这种角色转换的场景，就需要去做特殊的流程设计。</p>
+<p>信息结构是一个规整的大框架，但是到了具体去做产品的时候，信息结构的很多信息，可能会很琐碎的分布在产品的各个角落。</p>
+<p>比如咱是卖衣服的，有这么一个叫做“仓库”的东西，它是我们用来进行商品管理的。现在我们要上一款新的衣服，那么我们会在“仓库”中添加一个新的产品，这个产品可以被删除，被描述，被变更价格等等。但是关于这个产品的信息，却不一定是显示在“仓库”区，它价格可能显示在首页，它的剩余数量、尺寸信息会出现在详情页面等等。而这个时候，我们如果站在用例的角度去考虑的话，就会发现，原来这些功能还需要排布在这些页面上（虽然从功能上来说，这些功能是由“仓库”进行管理的）。</p>
+<p>所以，如果说信息架构和流程图串联起来的是普适场景，那么角色用例则是以另外一种视角去梳理和完善了用户的使用流程。</p>
+<h3 id="四-界面结构"><a href="#四-界面结构" class="headerlink" title="四.界面结构"></a>四.界面结构</h3><p>好！到了这一步，也就开始触碰到了具体的UI了。到了产品设计的框架层。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia19.png" alt=""></p>
+<p>也是从这个层面开始，我们需要去着手低保真原型设计。在做原型demo的时候，我们一开始没有必要去纠结于细节的问题，而是先根据我们之前梳理出来的任务流程，去整理出大致有哪些页面（主要页面），每一个页面大致有啥功能…</p>
+<p>那么这个时候，我们就需要开始打开电脑，找到我们的AXURE软件，开始着手设计了吗？不，这个时候还有点早，我们目前还是处于一个产品设计的规划阶段，过早的开始着手全面的设计，容易陷入各种交互状态的细节之中，所以这个时候，笔者建议，使用笔和纸去做一个简单的demo。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia20.jpg" alt=""><br><em>图片来源于网络</em></p>
+<p>用纸和笔去描述产品的核心页面、核心模块、页面逻辑等等。在绘制过程中，建议使用灰色或者黑色来制作原型，因为过多的颜色使用，会影响视觉设计师对UI的把控，但，如果页面中有特别需要强调和突出的信息，可以适当的添加颜色，标明重点。</p>
+<p>在设计原型的时候，我们不单单只是根据产品经理提供的prd去做设计，而是要确定设计的目标。设计目标是个什么？我们需要考虑项目的背景，商业的要求，体验的需求等等，去综合权衡，把产品给到交互的prd翻译为设计目标，根据这个目标去进行页面逻辑，页面信息的设计（视觉设计师也需要考量这一点）</p>
+<p>原型可谓是产品设计的核心，几乎每一个部门的同事都需要去根据原型来安排自己的工作：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia29.png" alt=""></p>
+<p><strong>原型的美观度是否重要？</strong></p>
+<p>因为笔者是视觉设计师的关系，个人认为原型的美观度并不是很重要，因为原型评审完了以后，视觉我会在另外优化。哈哈，谁叫我是视觉呢？</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia21.gif" alt=""></p>
+<p>卖了个萌～(≧▽≦)</p>
+<p>好，言归正传，笔者之前所处的一些公司，大多是交互视觉并行，所以原型的美观度就不是很重要，而更重要的是，把原型中包括的信息，以最合理的方式描述出来。</p>
+<p>当我们理清了设计的目标，思路以后，就可以在之前的低保真原型上开始细化设计。比如对于某些功能模块，我们单单输出线框图的话，可能是不够的，开发未必会理解设计师要表达的意思，这个时候我们需要制作一些流程图去表明自己的意思。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia22.svg" alt=""></p>
+<p>用户的任务流程图有了，再去结合页面的线框图，就可以更“精确”的描述产品的逻辑。</p>
+<p>当然，必要的文字描述也是不可缺少的，详细的交互说明会让原型看起来更加的专业。例如：</p>
+<ul>
+<li>页面中的这个元素是否有多态？</li>
+<li>文字超出长度该如何处理？</li>
+<li>这个页面的加载是否需要做异步处理？</li>
+<li>这个文案是写死的还是问后台数据请求的？</li>
+<li>这边的排版未必可以合理的引导用户，是否需要视觉帮忙一起做个动画？</li>
+<li>这边的弹窗我是用模态的还是非模态的？</li>
+<li>等等</li>
+</ul>
+<p>在实际的制作中，不建议去做动态可点击的原型给到开发，因为开发没有那么多时间去尝试点击页面中的按钮元素，工程师更加容易接受文本形式的交互说明。并且对于设计师而言，制作可点击的原型，实在是太耽搁时间了，我们宁可把更多的时间“浪费”在研究如何设计的思考中去。</p>
+<h3 id="五-感知设计"><a href="#五-感知设计" class="headerlink" title="五.感知设计"></a>五.感知设计</h3><p>如果说界面结构是开始关联到了UI设计的工作，那么感知设计，就是交互和视觉设计融合的地方，在这里，视觉设计师，交互设计师，都需要去考虑产品的“视觉感知”。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia24.png" alt=""></p>
+<p>那么，我们可以从哪些角度来优化视觉的呈现呢？</p>
+<p><strong>1.视觉的认知处理——视觉流</strong></p>
+<p>人眼处理视觉信息的模式一般有以下几种：</p>
+<ul>
+<li>从上倒下，从左到右</li>
+<li>从大的物体到小的物体</li>
+<li>从不寻常不规则的物体到寻常规则的物体</li>
+<li>从动态的无敌到静态的物体</li>
+<li>从饱和度高的到饱和度低的</li>
+</ul>
+<p><strong>2.格式塔心理学（完形心理学）</strong></p>
+<p>格式塔心理学中有这么一条理论：在我们所认知周围事物的时候，我们会很努力的把看到的事物，往我们已有的认知体系去靠。尝试着用我们已经有的认知体系，去识别我们看到的事物。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia30.png" alt=""></p>
+<p>比如上图中，其实不存在真正意义的三角形或者圆形，但是我们看到这个画面的时候，会认为画面中存在着三个圆形，两个三角形。这也就是“补完冲动”</p>
+<p>另外还有一条理论也常用于交互设计：我们会把距离较近的，外观相似的元素，理解为是一个整体。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia32.png" alt=""></p>
+<p>因此，在设计中，当相互靠近的功能块是不相关的话，就说明交互设计可能是有问题的。</p>
+<p><strong>3.Fitts’ Law / 菲茨定律</strong></p>
+<p>菲茨定律本身是HCI领域的一个重要知识点，不过其解释过于理论性和书面话，我们来看一下官方定义：从一个起始位置移动到一个最终目标所需的时间由两个参数来决定，到目标的距离和目标的大小（上图中的 D与 W），用数学公式表达为时间 T = a + b log2(D/W+1)。</p>
+<p><img src="http://image.woshipm.com/wp-files/2012/11/e4ec9aaf67d1b3628447590d08484119.png" alt=""></p>
+<p>似乎确实难以理解，笔者也不是很喜欢去深究这些高大上的理论，我们只需要记住其在交互上的实践指导意义即可：</p>
+<ul>
+<li>按钮等可点击对象需要合理的大小尺寸。</li>
+<li>屏幕的边和角很适合放置像菜单栏和按钮这样的元素，因为边角是巨大的目标，它们无限高或无限宽，你不可能用鼠标超过它们。即不管你移动了多远，鼠标最终会停在屏幕的边缘，并定位到按钮或菜单的上面。</li>
+<li>出现在用户正在操作的对象旁边的控制菜单（右键菜单）比下拉菜单或工具栏可以被打开得更快，因为不需要移动到屏幕的其他位置。</li>
+</ul>
+<p><strong>4.排版和布局原则</strong></p>
+<p>这块的话，似乎作为视觉设计，最有发言权了，哈哈，因为这块的话对于一个视觉而言，是非常重要的基本功。当然，于交互设计师而言，也是需要去了解并且加以掌握的。</p>
+<p>排版和布局，我觉得有两个重要的点，我们需要去care：<strong>对齐</strong>和<strong>聚合</strong></p>
+<p>1.对齐的重要性，相信大家都了解，所以笔者也不在多说；</p>
+<p>2.聚合是什么？通俗的来说，就是相似的功能模块元素，靠的近一点；不是一个功能模块的信息元素，离得远一些。</p>
+<p>以上是笔者角色最为重要的两点，还有一些其他的原则，笔者不再细述，在这里做一个简单的罗列：</p>
+<ul>
+<li>越少的信息量越好，让用户抓到核心信息</li>
+<li>越少的行动点越好，最好只有一个行动点</li>
+<li>越少的样式越好</li>
+<li>尽量遵循系统的规范和用户习惯</li>
+<li>信息一定要清晰、明确、直接</li>
+<li>相同的功能，在不同的页面中应该保持一致</li>
+<li>措辞统一</li>
+<li>合理的利用留白和间距</li>
+</ul>
+<p><strong>5.文案的雕琢</strong></p>
+<p>文案一定要做到简练、准确、易于迅速理解。</p>
+<p>X型文案和Y型文案的对比。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia33.png" alt=""></p>
+<p>看完了以后，大家会不会觉得Y型的文案更有画面感～<br><img src="http://oi68vw4nk.bkt.clouddn.com/ia21.gif" alt=""></p>
+<p><strong>6.防错处理</strong></p>
+<p>1）有辅助的输入数据</p>
+<p>举例：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia34.png" alt=""><br>帮助用户匹配好邮箱类型，一来减少了用户的操作成本，而来降低了用户输入错误邮箱的可能性</p>
+<p>2）预览和确认</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia35.png" alt=""><br>在用户执行某些重要的操作的时候，询问七是否确定执行该操作。</p>
+<p>3）提供帮助和向导</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia37.png" alt=""><br>以“帮助”的形式告知用户改如何处理可能会遇见的问题</p>
+<p>4)错误检测并提示错误</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia36.png" alt=""><br>图为dribbble上传作品尺寸有误时候的提示</p>
+<p>以上为笔者针对感知设计的几点总结。当然，感知设计是一个很大的学科，这里很难罗列完全，所以笔者这里挑选了以上几个重要的点做简单归纳。</p>
+<p>不知不觉，写的差不多了，这篇文章似乎有点长，哈哈，本来还想对于感知设计再举个实例进行阐述的，后来一想，有旁友能够耐心的读完我的这篇文章，已经是很给我面子咯！既然是讲方法论的文章，就还是以理论为主吧，后期有时间的话，再做一些案例补充。</p>
+<p>不知不觉，明天就是年三十啦！17年，加油吧，keep fighting！</p>
+<p><em>本文参考资料来源：</em></p>
+<p><em>《破茧成蝶-用户体验设计师》——刘津、李月；<br>用户体验度量——[美]Thomas Tullis、William Albert；<br>About Face3交互设计精髓——[美]库伯、[美]瑞宁、[美]克洛林；<br><a href="http://www.geekpark.net/topics/166489" target="_blank" rel="external">交互设计七大定律</a><br>网易云阅读前交互负责人——董安</em></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/02/“ppi”/" data-toggle="tooltip" data-placement="top" title="设计师需要了解的一些移动端适配原理｜仅针对Native">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; DHL Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
