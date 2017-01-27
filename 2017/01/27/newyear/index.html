@@ -13,11 +13,11 @@
 
     <title>
         
-          Tags - 戴瀚林的博客
+          2016年的最后一天 - 戴瀚林的博客
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/tags/">
+    <link rel="canonical" href="http://yoursite.com/2017/01/27/newyear/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -148,207 +148,102 @@
 
     <!-- Main Content -->
     
-<!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg-o.jpg')">
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('newyear_bg.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Tags</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Tags.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#杂" title="杂">杂</a>
+                        
+                    </div>
+                    <h1>2016年的最后一天</h1>
+                    <h2 class="subheading"> &quot;goodbye！2016！&quot;</h2>
+                    <span class="meta">
+                        Posted by DHL on
+                        2017-01-27
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-            <div id='tag_cloud' class="tags">
-                
-                    <a href="#交互设计" title="交互设计" rel="1">交互设计</a>
-                
-                    <a href="#杂" title="杂" rel="1">杂</a>
-                
-                    <a href="#开发对接" title="开发对接" rel="3">开发对接</a>
-                
-                    <a href="#视觉设计" title="视觉设计" rel="2">视觉设计</a>
-                
-            </div>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            <!-- 标签列表 -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="交互设计">
-                    <span class="tag-text">交互设计</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/01/26/ia/">
-                        <h2 class="post-title">
-                            让我们从IA说开，来聊聊交互设计方法论
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "Information architecture with product design"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="杂">
-                    <span class="tag-text">杂</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/01/27/newyear/">
-                        <h2 class="post-title">
-                            2016年的最后一天
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "goodbye！2016！"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="开发对接">
-                    <span class="tag-text">开发对接</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/12/31/“搭建博客”/">
-                        <h2 class="post-title">
-                            如何在Mac上搭建基于GitHub的Hexo主题博客？【小白篇】
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "Something anout independent blog"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/12/03/【心得】引用Iconfont做UI？设计师需要Care的那些事儿～/">
-                        <h2 class="post-title">
-                            引用Iconfont做UI？设计师需要Care的那些事儿
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "Something about svg"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/01/02/“ppi”/">
-                        <h2 class="post-title">
-                            设计师需要了解的一些移动端适配原理｜仅针对Native
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "DPI、PPI、DP、PT、PX..."
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="视觉设计">
-                    <span class="tag-text">视觉设计</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/12/08/“用“理性”的方法论去实践“颜色情绪板””/">
-                        <h2 class="post-title">
-                            用“理性”的思维去实践“颜色情绪板”
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "To conquer sensibility with reason"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/12/03/“理科做设计”/">
-                        <h2 class="post-title">
-                            没有受过科班训练的理科生该如何做运营推广图设计？
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "How to make a splash or a banner for our product?"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
+                <p>今天是农历2016年的最后一天，傍晚时分，去了儿时玩耍的江边走了走，一转眼也26岁了，毕业也两年半了。</p>
+<p>回过头来看看15年的自己，再想想14年的自己，似乎是成长了些许的；记得2016年去一家上市公司面试的时候，面试官说不相信我的作品是自己做的，我当时很惊讶，现在想想，也挺庆幸；这也变向的说明：在他的眼中，自己的水平或许超过了这个年龄的大部分设计师。</p>
+<p>可是，总感觉自己做的只能是差强人意；互联网时代的UI，不能够仅仅是UI；</p>
+<p>于岗位的上下游：交互，运营，产品，品牌，数据分析等等。于设计这个大的门类：摄影，动效，平面，插画，3D…我们都需要去了解研究，不断完善自己的设计体系。</p>
+<p>2017年，希望会是自己设计路上，改变最多的一年！明年，再回来看看儿时的江水可好？</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/099999.jpg" alt=""></p>
 
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/26/ia/" data-toggle="tooltip" data-placement="top" title="让我们从IA说开，来聊聊交互设计方法论">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
