@@ -13,11 +13,11 @@
 
     <title>
         
-          写在2016年的最后一天 - 戴瀚林的博客
+          “换个角度，浅谈设计中的网格系统和栅格系统的应用” - 戴瀚林的博客
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/01/27/newyear/">
+    <link rel="canonical" href="http://yoursite.com/2017/01/28/“栅格”/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('newyear_bg.jpg')
+        background-image: url('shange_bg.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,14 +165,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#其他" title="其他">其他</a>
+                          <a class="tag" href="/tags/#视觉设计" title="视觉设计">视觉设计</a>
                         
                     </div>
-                    <h1>写在2016年的最后一天</h1>
-                    <h2 class="subheading"> &quot;goodbye！2016！&quot;</h2>
+                    <h1>“换个角度，浅谈设计中的网格系统和栅格系统的应用”</h1>
+                    <h2 class="subheading"> &quot;Sth About Grid System&quot;</h2>
                     <span class="meta">
                         Posted by DHL on
-                        2017-01-27
+                        2017-01-28
                     </span>
                 </div>
             </div>
@@ -191,12 +191,61 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>今天是农历2016年的最后一天，傍晚时分，去了儿时玩耍的江边走了走，一转眼26岁了，毕业也两年半了。</p>
-<p>回过头来看看15年的自己，再想想14年的自己，似乎是成长了些许的；记得2016年去一家上市公司面试的时候，面试官说不相信我的作品是自己做的，我当时很惊讶，现在想想，也挺庆幸；也许在他的眼中，自己的水平超过了这个年龄一般的设计师。</p>
-<p>可是，总感觉这一年，只能算是差强人意；互联网时代的UI，不能够仅仅是UI；2017年，希望进一步完成自己知识体系从深度到广度的构建。</p>
-<p>于岗位的上下游：交互，运营，产品，品牌，开发对接，数据分析等。于设计这个大的门类：摄影，动效，平面，创意，3D…我们都需要去了解研究，不断完善自己的设计体系。</p>
-<p>明年，再回来看看这儿时的江水可好？</p>
-<p><img src="http://oi68vw4nk.bkt.clouddn.com/01_meitu_2.jpg" alt=""></p>
+                <p>我们先来看看栅格和网格的雏形：</p>
+<blockquote>
+<p>1692年，新登基的法国国王路易十四感到法国的印刷水平强差人意，因此命令成立一个管理印刷的皇家特别委员会。 他们的首要任务是设计出科学的、合理的， 重视功能性的新字体。委员会由数学家尼古拉斯加宗（Nicolas Jaugeon）担任领导，他们以罗马体为基础，采用方格为设计依据，每个字体方格分为64个基本方各单位，每个方各单位再分成36个小格，这样，一个印 刷版面就有 2304个小格组成，在这个严谨的几何网格网络中设计字体的形状，版面的编排，试验传达功能的效能，这是是世界上最早对字体和版面进行科学实验的活动。</p>
+</blockquote>
+<p>传统意义上而言，一般的栅格系统（Grid system）也称为网格系统（或者标准尺寸系统、程序版面设计）；但是呢，今天笔者所要讲的栅格和网格，是两个不同的类。我们先来看看“网格系统”。</p>
+<h3 id="一-网格系统"><a href="#一-网格系统" class="headerlink" title="一.网格系统"></a>一.网格系统</h3><p>首先，我们先来打开设计软件，来了解一下软件中自带的网格系统工具。ps和sketch都有自带的网格工具，下面我们以sketch为例。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/ia41.png" alt=""></p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge02.png" alt=""></p>
+<p>网格的大小一般以偶数为主；在后期我们绘制一些UI模块的时候，可以以网格的单元格为基础单位进行绘制，便于对齐；</p>
+<p>在制作app底部四个常驻的icon时也一样，可以提升不少的便利性：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge03.png" alt=""></p>
+<p>用网格事先分割好区块，和开发约定好每一个网格占据的像素宽高。随后我们在绘制icon的时候，只需要按照icon所占区域的方框大小绘制即可；切图输出黄色方框大小的图片资源，告诉开发这些图片资源占据几个网格，以及图片资源的控件距离周边元素的的“网格数”（标注），即可快速完成与开发的对接。</p>
+<blockquote>
+<p>注：iOS原生的系统有自己的一套实现机制，客户端在做标签栏的时候，其实不用这么麻烦；这个例子在这里仅仅做举例说明，用来描述类似场景中关于网格的使用。</p>
+</blockquote>
+<h3 id="二-栅格系统"><a href="#二-栅格系统" class="headerlink" title="二.栅格系统"></a>二.栅格系统</h3><p>栅格系统的最初来源，正如文章开头介绍的背景故事所属，它起源于平面设计的方法与风格。是如今出版物设计的主流风格之一。现在很多网站在制作web设计规范的时候，也会去使用栅格系统来确定网站的布局形式和控件元素大小。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1338225-a8c2e716b9d46a68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们先来通过一个使用栅格系统的前端实现工具——bootstrap，来了解一下栅格。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge04.png" alt=""></p>
+<p>在bootstrap官网中，我们找到“Bootstrap可视化布局”</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge05.png" alt=""></p>
+<p>通过这个可拖动的工具——<a href="http://www.bootcss.com/p/layoutit/" target="_blank" rel="external">LayoutIt</a>, 来熟悉一下栅格是如何去划分web区块的：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge06.png" alt=""></p>
+<p>如果我们把web的可视区域分割为12块。在左侧的“布局设置”中，展示了一般常见的几种分割组合比例：12（整块）、6:6、8:4、4:4:4、2:6:4。当然，实际工作中，具体按照怎样的比例去划分组合，需要我们根据实际的业务需求来。</p>
+<p>下面我们来看一下，针对960px可视区域，常见的栅格系统:</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge07.png" alt=""></p>
+<p>一般栅格系统中，我们需要明确意下3个信息：</p>
+<p>1.栅格本身的宽度：<br><img src="http://oi68vw4nk.bkt.clouddn.com/wangge078.png" alt=""><br>如图，在这个栅格系统中，每一个栅格本身的宽度为60px；</p>
+<p>2.栅格之间的距离：<br><img src="http://oi68vw4nk.bkt.clouddn.com/wangge09.png" alt=""><br>该栅格系统中栅格之间的距离为20px；</p>
+<p>2.栅格系统与可视区域之间的间距：</p>
+<p>一般来说，栅格系统是居中于可视区域的；在实际做设计规划的时候，栅格系统可能会不贴边于可视区域：<br><img src="http://oi68vw4nk.bkt.clouddn.com/wangge10.png" alt=""><br>如图，红框部分的艰巨，是栅格与栅格之间距离的二分之一，这是一种样式。</p>
+<p>设一个栅格系统有A个栅格，栅格与栅格之间的距离为i，栅格本身的宽度为a，可视区域为w.那么针对于这种不贴边的情况：</p>
+<p><strong> (i＋a)*A = w</strong></p>
+<p>当然，也有栅格系统于与可视区域完全贴边的：<br><img src="http://oi68vw4nk.bkt.clouddn.com/wangge11.png" alt=""><br>针对于这种情况：<strong> i<em>(A-1)＋a</em>A = w</strong></p>
+<p>这些在我们做web规范之前，都需要提前定义好。</p>
+<p>有了栅格系统，我们在做web的时候，就可以按照栅格的区块，来做各个功能的板块划分。<br><img src="http://oi68vw4nk.bkt.clouddn.com/01010101010101.png" alt=""></p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/17241210.png" alt=""></p>
+<p><strong> 栅格系统的意义：</strong></p>
+<ol>
+<li>简化了设计的运算工作，便于设计团队协同</li>
+<li>可以很轻松的实现快速对齐</li>
+<li>方便运营人员管理网站图片资源（广告图片都是符合规范规则的，易于管理）</li>
+<li>便于开发重构布局、前端布局可复用、利于响应式设计</li>
+</ol>
+<p>关于前3点是比较好理解的，这里不在做详细阐述。我们来讨论一下第4点：</p>
+<p>为什么说利于前端的工作呢？在我们实际写前端的时候，有一个技术难点——<strong> 浮动</strong> 。</p>
+<p>在我们实际工作中，浮动算是css中比较“磨人”的一个东西，在一个div和另外div在排列的时候，容易出现错位的问题，尤其是在不同的浏览器下。关于浮动，我们可以看下图，简单的理解一下：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/009.gif" alt=""></p>
+<p>如图为三个div都带有向左浮动的属性，在右侧的图中，因为第一个div变大了，所以第三个div就无法实现与第一个div的“左对齐”。我们在实际开发中，如果完全遵守栅格系统的话，就可以规避掉这些“讨厌的”问题。</p>
+<p>另外一点，就是对于web而言，栅格系统便于做响应式布局。</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge12.png" alt=""><br>如图为一个网站在pc上的样式；</p>
+<p>那么当其在手机上预览的时候，也使用这么一套栅格系统去规范，就可以变成如下的样式：<br><img src="http://oi68vw4nk.bkt.clouddn.com/wangge13.png" alt=""></p>
+<p>这里可以参照dribbble的例子：<br><img src="http://oi68vw4nk.bkt.clouddn.com/wangge14.png" alt=""></p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/wangge15.png" alt=""></p>
+<p>小结：对于网格和栅格，其本质是一种视觉规范的方式，是否需要将其带入自己的工作中，也需要去根据实际情况去考量。例如，笔者认为，在一些简单的产品介绍页面，其本身页面信息结构并不复杂的情况下，没有太多使用栅格的必要；而对于一些具有功能性的产品网站，其本身结构比较复杂，业务场景也较多的话，则可以用栅格或者网格系统来规划全站的体验。</p>
 
 
                 <hr>
@@ -205,13 +254,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/01/28/“栅格”/" data-toggle="tooltip" data-placement="top" title="“换个角度，浅谈设计中的网格系统和栅格系统的应用”">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/01/26/ia/" data-toggle="tooltip" data-placement="top" title="让我们从IA说开，来聊聊交互设计方法论">Next Post &rarr;</a>
+                            <a href="/2017/01/27/newyear/" data-toggle="tooltip" data-placement="top" title="写在2016年的最后一天">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
