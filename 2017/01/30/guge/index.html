@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          换个角度精读谷歌Material Design设计规范 - 戴瀚林的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/01/30/guge/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">DHL Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archivess/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('guge_bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#视觉设计" title="视觉设计">视觉设计</a>
+                        
+                    </div>
+                    <h1>换个角度精读谷歌Material Design设计规范</h1>
+                    <h2 class="subheading"> &quot;Information architecture with product design&quot;</h2>
+                    <span class="meta">
+                        Posted by DHL on
+                        2017-01-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>谷歌设计规范基本上可以视为设计规范的范本，而且不仅仅是在UI层面，甚至可以说是传统设计的进化范本；本文中，笔者会对规范中的重点内容，拆碎了做“精读“。</p>
+</blockquote>
+<p>我们先来看一下谷歌官方的定义：</p>
+<blockquote>
+<p>A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. </p>
+</blockquote>
+<p>首先，这个定义很“大”，真的很“大”。MD design是啥呢？简单来说，就是将科学、技术、创意等等综合到一起，总结成一套规则，形成一个视觉语言。这是一个极其庞大的设计语言系统，所以笔者在这边，会挑出几个点，做<strong> “精读”</strong> 分享给大家。</p>
+<p>关于全面的官方文档，可以点击这里<a href="http://www.google.com/design/spec/material-design/" target="_blank" rel="external">MD design官方设计规范</a>（需要翻墙哦～）。</p>
+<p>如果没有翻墙的朋友，可以<a href="http://blog.chengyunfeng.com/design/spec/material-design/introduction.html" target="_blank" rel="external">查看这个不需翻墙版本</a>（一个基于SAE托管的独立博客，作者已将MD规范整体Fork）</p>
+<p><em>因为官方的文档可能会实时更新，因此建议大家尽量去查看上方的官方链接。</em></p>
+<h3 id="一-颜色-Color"><a href="#一-颜色-Color" class="headerlink" title="一.颜色(Color)"></a>一.颜色(Color)</h3><p>在官方文档中，是这样描述 MD的颜色的：</p>
+<blockquote>
+<p>Color in material design is inspired by bold hues juxtaposed with muted environments,deep shadows，and bright highlights.</p>
+</blockquote>
+<p>这里着重提到了几个关键词：</p>
+<ul>
+<li>hue——色彩</li>
+<li>environments——环境</li>
+<li>shadows——阴影</li>
+<li>highlights——高光</li>
+</ul>
+<p>我们可以从字面上去理解：通过大胆的色调，强烈的阴影和高光与周边环境来渲染颜色。但是呢，这里在信息传递层面，也有另外一重寓意：highlights表明的是界面中需要强调的部分，shadows代表的是信息的层级，environments环境是文本信息周边的信息颜色；这是从信息层级的角度去理解color的意义。</p>
+<p>下面我们来看一下MD规范中推荐的<strong> UI调色板：</strong> </p>
+<p>纯红色、粉红色、纯紫色：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-1-1.png" alt=""></p>
+<p>深紫色、藏青色、纯蓝色：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-2-2.png" alt=""></p>
+<p>浅蓝色、天青色、水鸭色：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-3-3.png" alt=""></p>
+<p>绿色、亮绿色、柠檬绿：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-4-4.png" alt=""></p>
+<p>黄色、棕黄色、橙色：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-5-5.png" alt=""></p>
+<p>深橙色、褐色、灰色：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-6-6.png" alt=""></p>
+<p>蓝灰色、黑白色：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-7-7.png" alt=""></p>
+<p>这些颜色，我们大致上可以分为两个类别，我们不难发现：从开头的第一个纯红色（Red）到深橙色（Deep Orange），正好是色轮的一圈：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-8.png" alt=""></p>
+<p>在谷歌推荐的调色板中，也单独列出了另外四个特殊的颜色：褐色、蓝灰色、灰色、黑白。</p>
+<p>在每一个画板中，会有两个模块，我们以纯红色举例：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-1-1-1%EF%BC%8D1.png" alt=""></p>
+<p>上方的称之为标准色，纯红色的基准是“500”的饱和度；标准色中的其他颜色，做饱和度的加大或者削弱产生；下方的颜色则称之为推荐色；</p>
+<p>关于标准色和推荐色的使用方法，我们来以谷歌规范中的视频样本作阐述：<br><em>这里是视频的地址链接：<a href="http://v.youku.com/v_show/id_XMTMyODk3NjIwNA==.html" target="_blank" rel="external">点击查看</a>（考虑到部分同学无法翻墙，在这里提供一个优酷链接）</em></p>
+<p>我们来根据视频的过程，学习一下谷歌推荐的配色方法：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-10.png" alt=""><br>注意这个色板，下面我们开始取色：</p>
+<p>其中的一个颜色放大之后展开，变成了九个颜色方格：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-11.png" alt=""><br>这个画面是不是很眼熟呢？这九个板块，对应的就是刚刚色板中的饱和度100-900的颜色。</p>
+<p>现在我们开始在标准色色板中移动（饱和度均为500），OK，我们选中了一个蓝色，这个时候呢，在右侧的界面中，就填充进了我们所选择的主色。<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-12.png" alt=""></p>
+<p>这个时候，左侧的图变成了基于刚选择的蓝色生成了蓝色标准色色板，一共从100-900，有九个不同的饱和度：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-13.png" alt=""></p>
+<p>下面开始进行辅色的搭配：</p>
+<p>我们从左侧的色板中，选择了饱和度为700的蓝色，其余部分上色，如图：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-14.png" alt=""></p>
+<p>随后我们对按钮等控件进行着色，这也是color定义中的“bright highlights”<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-15.png" alt=""></p>
+<p>我们来归纳一下这整个着色过程：以标准色为界面的主色调；再以标准色做上下抖动（±200至±300的饱和度差），选了一个颜色，做导航色；最后从推荐色（A色值）选择一个颜色，作为可点击颜色。当然，还有一个颜色，就是灰色，用于界面的背景色。</p>
+<p>这个视频简述了谷歌规范配色的指导思想，也是非常的学院派做法——<code>它认为颜色是带有层级的、包含着逻辑含义的，而不是随便使用的。</code></p>
+<p>还记得这个视频开头的那句话吗？”There no wrong colors.”从来没有错误的颜色；颜色的使用好坏，需要去看如何搭配。人类对于颜色的感知是非常主观的，比如你说橙色代表着热情，但这也只是绝大部分人对于橙色的感觉；可能会有人觉得橙色是“静谧”，这个是没有对错的，只是大家对于颜色层面感性理解的角度不一样。但是于颜色的信息层级而言，则是相对理性和富有逻辑的。这点也是谷歌规范在界面配色里的中心指导思想。</p>
+<p><strong>在颜色层面，谷歌和苹果设计风格的对比：</strong></p>
+<p>谷歌的视觉规范&amp;和苹果设计风格，可以说是完全不同的两个不同的类型，为什么这么说呢？</p>
+<p>MD设计规范着重诠释了大胆而具有强烈对比性的色彩，它认为这个世界应该是多姿多彩的；鲜艳富有个性的色彩可以使用户保持愉悦的心情。并且设计基本理念中，谷歌是把界面视为纸张，用“纸张”去传递信息，可以说谷歌的工程师可以说是文艺派的！</p>
+<p>而在苹果设计规范中呢？苹果规范对颜色提到的信息却不多，苹果认为你用亮色，用暗色是开发者自己家产品的事情，在iOS系统规范中没有必要做太多的限制；<strong>苹果认为凸显内容、传递信息才是核心。</strong>谷歌相对苹果比较“激进”；苹果相对谷歌比较“保守”。对于用户的理解也不一样，谷歌希望让用户有印象深刻的体验，让用户感觉到“艺术”，通过大胆的颜色打动用户的心。而苹果则认为，真正优秀的设计，应该是潜入你的生活中且不着痕迹的，用户不需要记住我的颜色，我们只需要帮助用户顺畅的完成用户目标即可。</p>
+<p>下面，我们通过一个例子看看<strong>颜色主题（Color schemes）的应用</strong></p>
+<p>官方文档中，颜色主题一共包括三个方面：</p>
+<ul>
+<li>primary color——主色调</li>
+<li>secondary color——次级颜色</li>
+<li>accent color——重点色（可交互区域）</li>
+</ul>
+<p>我们来看一下文档中的截图：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-22.png" alt=""></p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-24.png" alt=""><br><em>上方的两张图为界面的截图，下方的为界面使用的颜色色板</em></p>
+<p>界面中使用的主色调为藏青色（indigo）500的饱和度，对应的为导航栏；次级颜色为700饱和度的藏青色——状态栏；而重点色使用了（pink）——A200，也就是非常明显的收藏按钮。这个例子简单的说明了主色、次级颜色、重点色的使用方法（其实也就是视频中配色demo的进一步诠释）</p>
+<p><strong>主色的多样性：</strong></p>
+<blockquote>
+<p><strong>Primary color variations：</strong></p>
+<p>Another alternative accent color is the 500 version of your primary color on white backgrounds.However, if your background color is already the 500 version of your primary color, make your accent color either white 100% or black 54%.</p>
+</blockquote>
+<p>这句话简单的定义了“可交互区域”颜色的特点：在白色背景下，可交互区域的颜色色值是500饱和度的主色；但是呢，如果背景区域已经是500饱和度的主色了，那么可交互的信息颜色就要调整为：alpha＝100%的纯白 or  alpha＝54%的纯黑。</p>
+<p>举个例子：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-25.png" alt=""></p>
+<p>上图中的文字按钮，就是在白色的背景上，其样式需要使用主色；而如果其背景本身就已经是主色了，则可交互信息需要使用纯白或者54%的黑色：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-26.png" alt=""></p>
+<p>由此可见，在谷歌规范中，其实并不存在标准意义上的灰色，所有的灰色都是由黑色加上透明度而来；对于主色上的白色也一样，也是做透明度的变化形成。在规范文档中，也给出了如下的解释：</p>
+<blockquote>
+<p><strong>Use opacity instead of grey：</strong></p>
+<p> Black or white text that is transparent remains legible and vibrant against background color changes. This makes it more flexible than grey text in the same contexts.</p>
+</blockquote>
+<p>谷歌认为使用透明度去约束文字的颜色，会更加的灵活，为什么这么说呢？笔者举个例子：</p>
+<p>我们现在app中有两个按钮，这两个按钮的背景色都是“500 version of your primary color ”，但是呢，颜色的色相不一样，一个是红色，一个是蓝色；</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-29.png" alt=""></p>
+<p>如图所示，上面是两个按钮在disabled的情况下的颜色，okay，如果我们直接用颜色标记两个按钮disabled状态下的文本颜色，则左边的按钮为：#90CAF9；右侧的按钮为：#F9A19A；这是两个不同的色值，这个时候，如果我的按钮背景色更换，则我们也需要去同时更换文本在disabled状态下的颜色，非常的麻烦。</p>
+<p>我们来看一下使用透明度标记的方法：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-30.png" alt=""></p>
+<p>如图，极其的方便，对于不同场景的按钮，我只需要写一个颜色：#ffffff alpha＝50%即可，如果我需要更改这个disabled的颜色，我只需要在颜色库里面统一更新这个颜色即可。并且这样做的话，可以把背景色透一点出来，使文本颜色不那么死板。</p>
+<p>同样的，谷歌规范也为我们定义了在浅色背景和深色背景上的文本用色：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-27.png" alt=""></p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-31.png" alt=""></p>
+<p>这里以浅色底、深色文本的例子来说明：</p>
+<ul>
+<li>主文本（primary text）：纯黑 opcity＝87%</li>
+<li>次级文本（secondary text）：纯黑 opcity＝54%</li>
+<li>不可点击／暗示说明文本（disabled／hint text）：纯黑 opcity＝38%</li>
+<li>主色和点击色在浅色文本上则是100%</li>
+</ul>
+<p>这里定义了三种不同的黑灰色文本颜色使用、并且也描述了浅色底上的主色和点击色的使用。那么关于文本颜色，导航颜色，背景色的使用，谷歌规范中做了详细的描述，这里不再罗列其他情况下的色彩运用，有需要的朋友可以详细的阅读设计规范文档。</p>
+<h4 id="关于阴影的颜色的一组讨论："><a href="#关于阴影的颜色的一组讨论：" class="headerlink" title="关于阴影的颜色的一组讨论："></a>关于阴影的颜色的一组讨论：</h4><p>有很多UI设计师朋友之前和笔者聊MD的时候，发现了一个“神奇”的现象：我们在谷歌官方的sketch模板文件中，发现了卡片式的投影，其实有“两层”：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-32.png" alt=""></p>
+<p>好像有点奇怪，仅仅是一个卡片的阴影而已，有必要去做两层吗？我们来看一下官方的解释：</p>
+<p><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-33.png" alt=""></p>
+<p>“Combined shadow from key and ambient lights”——这里有两层阴影，一层是环境光投射的阴影，另一层是关键光照射在material卡片上投射的阴影。这是谷歌给出的解释。</p>
+<p>下面我们再来看一下真实的物理环境中，阴影的黑度和扩散距离的关系：</p>
+<p>一般来说，随着距离的原来越远，阴影的黑度也越来越小，并且这种变化呈减速曲线（一开始变化的快，之后越来越慢）<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-34.png" alt=""></p>
+<p>说到这里，理论上我们只需要让开发把阴影处理为这种曲线变化的模式即可。可惜的是，在实际的手机中，阴影的黑度和扩散距离一般呈线性变化（非曲线），因为手机处理器性能问题, 实时计算平滑为曲线后的阴影会导致可怕的耗电与发热，所以谷歌只能在这方面妥协，将阴影曲线拉直。那么谷歌该如何去模拟真实环境中的阴影效果呢？我们来做一下拆分：</p>
+<p>首先是一层环境光的投影，这种投影时极其微弱的。<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-35.png" alt=""></p>
+<p>随后，还有一层光——关键光源照射产生的阴影，比如日光、灯光等，产生的阴影比较急促：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-36.png" alt=""></p>
+<p>那么如果我们将两者柔和呢？<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-37.png" alt=""></p>
+<p>这个时候我们就可以得到这样一种视觉感知：<br><img src="http://oi68vw4nk.bkt.clouddn.com/style-color-palette-38.png" alt=""></p>
+<p>近似的可以形成一个“曲线”，从而规避了手机将阴影曲线拉直的问题。同样，这也是我们平时在做banner或者插画的时候，一般会去做两层投影的原因——为了模拟真实环境中的阴影效果。所以某种意义上来说，这也刚好和谷歌官方定义中的“key and ambient lights”不谋而合。</p>
+<hr>
+<p><em>不知不觉，笔者写完了颜色部分；随后发现，如果再把其余的几个部分也都写完，这篇文章就太过于冗杂了，因此这次将做一个系列，后续会继续更新对MD中的其他模块的“精读”</em></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/27/newyear/" data-toggle="tooltip" data-placement="top" title="写在2016年的最后一天">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; DHL Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
