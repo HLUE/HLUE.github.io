@@ -90,7 +90,7 @@
 
                         
                         <li>
-                            <a href="/about/">About me</a>
+                            <a href="/archivess/">Archives</a>
                         </li>
                         
                     
@@ -104,7 +104,7 @@
 
                         
                         <li>
-                            <a href="/archivess/">Archives</a>
+                            <a href="/about/">About me</a>
                         </li>
                         
                     
@@ -216,7 +216,7 @@
 <p><strong> 4.DPI(一般用于对打印精度的描述)</strong><br>用于平面行业，是指打印的分辨率，每英寸所能打印的点数(dot per inch)。</p>
 <p>但是很多UI设计师也喜欢把DPI用于屏幕精度，如果是针对屏幕的话，其实大家所说的也就是PPI，只不过这里的DPI和PPI之间有一定的换算关系：在72dpi的情况下，dpi＝ppi，如果是144dpi，则2dpi＝1ppi，有倍数关系；所以我们在ps中新建画布的话，一般以72dpi为基准（不论你设计的屏幕是多少的ppi），因为在这样的基准下，ppi在数值上等同于dpi，方便计算（但它们本质是两个不同的事物哦）</p>
 <p><strong> 5.DIP(DP)</strong><br>设备独立像素（Device Independent pixels）。是安卓开发用的单位，1dp表示在屏幕点密度为160ppi时1px长度。dp更类似一个物理尺寸，同样宽高dp的一张图片，在不同ppi上看起来是差不多大小的。</p>
-<p><strong> 6.SP(scaled pixels)</strong><br>这也是安卓的常用单位，和DP不一样，SP主要用于安卓的文字。SP和PX的换算关系与DP和PX的换算关系一样（后面会做详细阐述）</p>
+<p><strong> 6.SP(scaled pixels)</strong><br>这也是安卓的常用单位，和DP不一样，SP主要用于安卓的文字。SP和PX的换算关系与DP和PX的换算关系一样（后面会做详细阐述）；那么两者的区别是啥呢？DP标注的元素，无法进行系统缩放；而SP标注的元素则可以进行系统缩放；关于系统缩放，笔者这里先不做深入阐述，可以简单的理解为：我在系统设置里面，可以去调整手机字号的大小。那么可以被调整的元素，则是使用SP标注的。</p>
 <p><strong> 7.PT</strong><br>iOS使用的开发单位，也称为逻辑像素。在iOS的一倍图（163PPI），如iPod Touch第一代中，1pt＝1px。</p>
 <p>巧合的是，在平面设计中也有一个pt的单位，它最早源自于传统的铅字印刷，是用来表示铅字块的尺寸，在印刷和平面设计的世界里，是一个标准的长度单位，1pt＝1/72英寸。</p>
 <h3 id="二-DP与PX的转换"><a href="#二-DP与PX的转换" class="headerlink" title="二.DP与PX的转换"></a>二.DP与PX的转换</h3><p>就如上文中提到的dp是安卓开发中用的单位，同样dp大小的元素，在不同屏幕上看起来，是差不多的。</p>
